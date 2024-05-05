@@ -2,7 +2,7 @@ import https from "https";
 import { getKeyValue, TOKEN_ID } from "./storage.service.js";
 import axios from "axios";
 const getWeather = async (city) => {
-  const token = await getKeyValue(TOKEN_ID.token);
+  const token =process.env.TOKEN ?? await getKeyValue(TOKEN_ID.token);
   if (!token) {
     throw new Error("Api doen't not exist -t [API_KEY] for saving token");
   }
@@ -15,7 +15,7 @@ const {data}=await axios.get("https://api.openweathermap.org/data/2.5/weather",{
         units:"metric"
     }
 })
-
+console.log(data);
 return data
 
 };

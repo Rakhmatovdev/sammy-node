@@ -31,7 +31,7 @@ const logger = () => {
     // save token
     saveToken(args.t)
   }
-getWeather('uzbekistan')
+getWeather(process.env.CITY ?? 'uzbekistan')
   //result
 };
 logger();

@@ -2,3 +2,7 @@ Package json kirib maindan keyin "type":"module" qoship qoysak 'modul.exports={}
 
 chalk => rang uchun konsoleda
 dedent-js => probellarni yoq qilish ishlatamiz
+
+
+terminalda envni ishlatish 
+TOKEN=121 CITY=Egypt node index.js
