@@ -19,14 +19,12 @@ await fs.promises.stat(path)
 };
 
 const saveKeyValue = async (key, value) => {
-  const data = {};
+  let data = {};
 
   if (await isExist(filePath)) {
       const file = await fs.promises.readFile(filePath);
-      data = JSON.parse(file);
-    console.log(data);
+  data =await JSON.parse(file.toString())
   }
-
   data[key] = value;
   await fs.promises.writeFile(filePath, JSON.stringify(data));
 };
