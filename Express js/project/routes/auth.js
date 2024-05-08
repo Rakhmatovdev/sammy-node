@@ -16,8 +16,17 @@ router.get("/login", (req, res) => {
     })
   });
 
-  router.post('/login', (req, res) => {
+  router.post('/login', async (req, res) => {
+    const existUser=await User.findOne({email: req.body.email})
+    if(!existUser) {console.log("User not found")
+       return }
+
+    const isPassEqual=await bcrypt.compare(req.body.password,existUser.password)  
+    if(!isPassEqual){console.log('Password wrong');
+      return 
+    }
     console.log(req.body)
+console.log(existUser);
     res.redirect('/')
   })
   
