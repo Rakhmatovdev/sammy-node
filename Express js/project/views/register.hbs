@@ -1,0 +1,87 @@
+<section class="vh-100" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <h3 class="mb-5">Sign up</h3>
+            <form action="/register" method="post" >
+              {{! full name }}
+              <div class="form-floating mb-4">
+                <input
+                name="fullName"
+                  type="text"
+                  id="floatingInput"
+                  class="form-control"
+                  placeholder="Full name..."
+                />
+                <label for="floatingInput">Full Name</label>
+              </div>
+              {{! email }}
+              <div class="form-floating mb-4">
+                <input
+                name="email"
+                  type="email"
+                  id="floatingInpute"
+                  class="form-control"
+                  placeholder="name@example.com"
+                />
+                <label for="floatingInpute">Email</label>
+              </div>
+              {{! number }}
+              <div class="form-floating mb-4">
+                <input
+                name="phone"
+                  type="phone"
+                  id="floatingInputn"
+                  class="form-control"
+                  placeholder="phone.."
+                />
+                <label for="floatingInputn">Phone</label>
+              </div>
+              {{! password }}
+              <div class="form-outline mb-4 form-floating">
+                <input
+                name="pass1"
+                  type="password"
+                  id="floatInputp"
+                  class="form-control"
+                  placeholder="password..."
+                />
+                <label class="form-label" for="floatInputp">Password</label>
+              </div>
+              {{! f-password }}
+              <div class="form-outline mb-4 form-floating">
+                <input
+                name="pass2"
+                  type="password"
+                  id="floatInputpf"
+                  class="form-control"
+                  placeholder="password..."
+                />
+                <label class="form-label" for="floatInputpf">Forgot Password</label>
+              </div>
+
+              {{! <!-- Checkbox --> }}
+              <div class="form-check d-flex justify-content-start mb-4">
+                <input
+                name="check"
+                  class="form-check-input"
+                  type="checkbox"
+                  id="form1Example3"
+                />
+                <label class="form-check-label" for="form1Example3">
+                  Remember password
+                </label>
+              </div>
+              <button
+                class="btn btn-primary btn-lg btn-block w-100"
+                type="submit"
+              >Register</button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
