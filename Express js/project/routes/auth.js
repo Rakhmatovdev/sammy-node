@@ -2,26 +2,22 @@ import { Router } from "express";
 import User from "../models/users.js";
 import bcrypt from "bcrypt";
 import { generateJWTToken } from "../services/token.service.js";
+import sign from "../middleware/sign.js";
 const router = Router();
 
-const PrivateRoute=(req,res)=>{
-  if(req.cookies.token){
-    res.redirect('/')
-    return
-  }
-}
 
 
-router.get("/login", (req, res) => {
- PrivateRoute(req,res)
+
+router.get("/login",sign, (req, res) => {
+ 
   res.render("login", {
     title: "Login | Jinc",
     isLogin: true,
     loginError: req.flash("loginError"),
   });
 });
-router.get("/register", (req, res) => {
-  PrivateRoute(req,res)
+router.get("/register",sign, (req, res) => {
+  
   res.render("register", {
     title: "Register | Jinc",
     isRegister: true,
