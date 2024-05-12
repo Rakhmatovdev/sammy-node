@@ -4,10 +4,10 @@ const router=Router()
 
 
 router.get("/", (req, res) => {
+  
     res.render('index',{
       title:"Boom | shop",
       isBoom:true,
-      token:true
     })
   });
   router.get("/about", (req, res) => {
