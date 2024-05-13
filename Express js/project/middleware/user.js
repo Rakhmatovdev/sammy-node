@@ -3,8 +3,8 @@ import User from "../models/users.js";
 
 export default async function (req, res, next) {
   if (!req.cookies.token) {
-    res.redirect("/login");
-    return;
+next() 
+   return;
   }
   const token = req.cookies.token;
   const decode = jwt.verify(token, process.env.JWT_SECRET);

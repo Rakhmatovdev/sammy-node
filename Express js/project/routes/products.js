@@ -10,8 +10,8 @@ router.get("/",async (req, res) => {
   const products= await Product.find().lean()
     res.render('index',{
       title:"Boom | shop",
-      isBoom:true,
-      products:products
+      products:products.reverse(),
+      userId:req.userId? req.userId.toString():null
     })
   });
   router.get("/about", (req, res) => {

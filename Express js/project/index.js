@@ -10,14 +10,16 @@ import ProductRoutes from "./routes/products.js"
 import session from "express-session";
 import varMiddlevare from "./middleware/var.js";
 import cookieParser from "cookie-parser";
-
+import userMiddleware from "./middleware/user.js";
+import hbsHelper from "./utils/index.js"
 dotenv.config()
 
 const app = express();
 
 const hbs=create({
   defaultLayout:'main',
-  extname:'hbs'
+  extname:'hbs',
+  helpers:hbsHelper
 })
 
 app.engine('hbs',hbs.engine)
@@ -30,7 +32,9 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(session({secret:"Jasur",resave:false,saveUninitialized:false}))
 app.use(flash())
+
 app.use(varMiddlevare)
+app.use(userMiddleware)
 
 app.use(AuthRoutes)
 app.use(ProductRoutes)
