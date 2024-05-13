@@ -5,10 +5,11 @@
         <div class="card shadow-sm">
           <img src={{image}} alt={{title}} />
           <div class="card-body">
-            <p class="card-text fw-bolt">{{title}}</p>
+            <p class="card-text fw-bold">{{title}}</p>
             <p class="card-text ">{{description}}</p>
             <div class="d-flex justify-content-between align-items-center">
-               <div class="avatar bg-primary"> <p>{{getFullName user.fullName}}</p></div>
+              <div class="d-flex gap-2 align-items-center"> <div class="avatar bg-primary"> <p>{{getFullName user.fullName}}</p></div>
+              <p class="p-0 m-0"> {{user.fullName}}</p></div>
               <small class="text-body-secondary fs-5">{{price}}.00$</small>
             </div>
           </div>

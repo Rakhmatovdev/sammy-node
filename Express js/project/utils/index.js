@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export default{
     ifequal(a,b,options){
         if(a==b){
@@ -15,5 +17,8 @@ export default{
            const name2= name[0]
            return name2
          }
+    },
+    formatDate(date){
+    return moment(date).format('DD MMM, YYYY')
     }
 }
