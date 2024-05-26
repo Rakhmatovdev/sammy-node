@@ -41,6 +41,15 @@ router.get("/",async (req, res) => {
   });
 
 
+router.get("/product/:id",async (req,res)=>{
+  const id=req.params.id
+  const product= await Product.findById(id).populate('user').lean()
+
+  res.render('product',{
+    product
+  })
+})
+
 router.post('/add-product',userMiddleware,async (req,res)=>{
   const {title,description,image,price}=req.body
   if(!title || !description || !image || !price){
@@ -48,6 +57,10 @@ router.post('/add-product',userMiddleware,async (req,res)=>{
     res.redirect("/add")
     return
   }
+
+
+
+
 const products= await Product.create({...req.body,user:req.userId})
   res.redirect("/")
 })
