@@ -1,0 +1,85 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <h3 class="mb-5">Edit product </h3>
+             {{#if ErrorEditProduct}}
+              <div
+                class="alert alert-danger alert-dismissible fade show d-flex justify-content-between align-items-center"
+                role="alert"
+              >
+                <div><strong>Error!</strong> {{ErrorEditProduct}}</div>
+                <button
+                  type="button"
+                  class="close btn"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {{/if}}
+             <form action="/edit-product/{{product._id}}" method="post">
+              <div class="form-floating mb-4">
+                <input
+                  name="title"
+                  type="text"
+                  id="floatingInputtitle"
+                  class="form-control"
+                  placeholder="Title..."
+                  value="{{product.title}}"
+                />
+                <label for="floatingInputtitle">Title</label>
+              </div>
+              <div class="form-outline mb-4 form-floating">
+                <textarea
+                  name="description"
+                  id="floatingInputdesc"
+                  class="form-control"
+                  placeholder="Description..."
+                  
+                style="height: 200px"
+                >{{product.description}}</textarea>
+                <label class="form-label" for="floatingInputdesc">Description</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input
+                  name="image"
+                  type="text"
+                  id="floatingInputimage"
+                  class="form-control"
+                  placeholder="image..."
+                  value="{{product.image}}"
+                />
+                <label for="floatingInputimage">Image</label>
+              </div>
+              <div class="input-group form-floating mb-4">
+                <span class="input-group-text bg-light">$</span>
+                <div class="form-floating ">
+                   <input
+                  name="price"
+                  type="number"
+                  id="floatingInputprice"
+                  class="form-control w-100"
+                  placeholder="price..."
+                  value="{{product.price}}"
+                />
+                <label for="floatingInputprice">Price</label> 
+                </div>
+              </div>
+              <button
+                class="btn btn-primary btn-lg btn-block w-100"
+                type="submit"
+              >Edit Product</button>
+            </form>
+          
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
